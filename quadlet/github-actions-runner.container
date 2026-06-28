@@ -1,0 +1,22 @@
+[Unit]
+Description=GitHub Actions self-hosted runner
+Requires=github-actions-runner-network.service
+After=github-actions-runner-network.service
+
+[Container]
+ContainerName=github-actions-runner
+Image=docker.io/azka2606/github-actions-runner:latest
+Pull=always
+Network=github-actions-runner.network
+EnvironmentFile=%h/.config/containers/systemd/github-actions-runner.env
+Volume=%t/podman/podman.sock:/run/podman/podman.sock
+Volume=github-actions-runner-data:/home/runner/actions-runner:U
+SecurityLabelDisable=true
+
+[Service]
+Restart=always
+RestartSec=10
+TimeoutStopSec=120
+
+[Install]
+WantedBy=default.target
