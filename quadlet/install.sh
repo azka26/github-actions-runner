@@ -6,6 +6,7 @@ SOURCE_DIR="${SCRIPT_DIR}"
 TARGET_DIR="${HOME}/.config/containers/systemd"
 ENV_FILE="${TARGET_DIR}/github-actions-runner.env"
 SERVICE_NAME="github-actions-runner"
+IMAGE="docker.io/azka2606/github-actions-runner:latest"
 
 prompt_required() {
   local prompt="$1"
@@ -55,6 +56,9 @@ chmod 0600 "${ENV_FILE}"
 
 echo "Quadlet sudah dipasang ke ${TARGET_DIR}."
 echo "Environment runner ditulis ke ${ENV_FILE}."
+
+podman pull "${IMAGE}"
+echo "Image ${IMAGE} sudah ditarik."
 
 systemctl --user daemon-reload
 echo "Systemd user daemon sudah di-reload."
