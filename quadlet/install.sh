@@ -59,6 +59,9 @@ echo "Environment runner ditulis ke ${ENV_FILE}."
 podman pull "${IMAGE}"
 echo "Image ${IMAGE} sudah ditarik."
 
+systemctl --user enable --now podman.socket
+echo "Podman user socket sudah aktif."
+
 systemctl --user daemon-reload
 echo "Systemd user daemon sudah di-reload."
 

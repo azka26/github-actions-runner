@@ -9,6 +9,7 @@ Image=docker.io/azka2606/github-actions-runner:latest
 Pull=always
 Network=github-actions-runner.network
 EnvironmentFile=%h/.config/containers/systemd/github-actions-runner.env
+UserNS=keep-id
 Volume=%t/podman/podman.sock:/run/podman/podman.sock
 Volume=github-actions-runner-data:/home/runner/actions-runner:U
 SecurityLabelDisable=true

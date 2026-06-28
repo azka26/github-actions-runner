@@ -17,6 +17,12 @@ The Quadlet file pulls the runner image from Docker Hub:
 podman pull docker.io/azka2606/github-actions-runner:latest
 ```
 
+Enable the rootless Podman user socket so jobs inside the runner can call the host Podman service:
+
+```bash
+systemctl --user enable --now podman.socket
+```
+
 Enable and start the user unit:
 
 ```bash
@@ -31,4 +37,10 @@ View logs:
 
 ```bash
 journalctl --user -u github-actions-runner.service -f
+```
+
+If the server boots without an interactive login session, enable linger once for the runner host user:
+
+```bash
+sudo loginctl enable-linger "$USER"
 ```
