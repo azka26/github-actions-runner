@@ -27,8 +27,7 @@ prompt_secret() {
   local value=""
 
   while [ -z "${value}" ]; do
-    read -r -s -p "${prompt}: " value
-    echo
+    read -r -p "${prompt}: " value
     if [ -z "${value}" ]; then
       echo "Nilai tidak boleh kosong."
     fi
