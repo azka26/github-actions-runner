@@ -1,9 +1,9 @@
 # syntax=docker/dockerfile:1
-FROM ubuntu:24.04
+FROM ubuntu:26.04
 
-ARG RUNNER_VERSION=2.335.1
+ARG RUNNER_VERSION=v2.336.0
 ARG RUNNER_ARCH=x64
-ARG RUNNER_SHA256=4ef2f25285f0ae4477f1fe1e346db76d2f3ebf03824e2ddd1973a2819bf6c8cf
+ARG RUNNER_SHA256=04cf0be1aff4c3ec3554466c39124ca250e3effd8873bb7e8d68535aa9505d5d
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV RUNNER_ALLOW_RUNASROOT=0
@@ -17,6 +17,7 @@ RUN apt-get update \
         ca-certificates \
         curl \
         git \
+        gh \
         jq \
         libgssapi-krb5-2 \
         libicu74 \
