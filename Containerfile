@@ -31,6 +31,7 @@ RUN apt-get update \
         tar \
         tini \
         docker.io \
+        wget \
     && rm -rf /var/lib/apt/lists/*
 
 RUN useradd --create-home --shell /bin/bash runner \
