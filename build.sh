@@ -26,6 +26,9 @@ else
 fi
 
 podman build \
+  --format docker \
+  --platform linux/amd64 \
+  --target full \
   -f Containerfile \
   -t "${LOCAL_IMAGE}" \
   -t "${REMOTE_IMAGE}:${next_version}" \

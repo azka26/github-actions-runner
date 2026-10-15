@@ -17,6 +17,11 @@ The Quadlet file pulls the runner image from Docker Hub:
 podman pull docker.io/azka2606/github-actions-runner:latest
 ```
 
+The Quadlet mounts `%t/podman/podman.sock` from the host at
+`/var/run/docker.sock` inside the container. The image sets
+`DOCKER_HOST=unix:///var/run/docker.sock` so Docker CLI tools use the host
+Podman API through the standard Docker socket path.
+
 Enable the rootless Podman user socket so jobs inside the runner can call the host Podman service:
 
 ```bash
