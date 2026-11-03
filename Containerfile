@@ -7,8 +7,8 @@ FROM ${DOCKER_CLI_IMAGE} AS docker-cli
 FROM ${UBUNTU_IMAGE} AS runner-base
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-ARG RUNNER_VERSION=2.337.0
-ARG RUNNER_SHA256=70920811a4f8ad4328818682bca5c6469c1c942fab52448868071d0063816613
+ARG RUNNER_VERSION=2.338.2
+ARG RUNNER_SHA256=baebf204307bac6193480852732f0aba2ae97b6c5597c244f4d5558390147c40
 
 ENV DOCKER_HOST=unix:///var/run/docker.sock
 # Docker 28's legacy build client uses Podman's compatible build API.
@@ -37,6 +37,7 @@ RUN apt-get update \
         sudo \
         tar \
         tini \
+        unzip \
         wget \
         zlib1g \
     && rm -rf /var/lib/apt/lists/*
