@@ -39,6 +39,7 @@ RUN apt-get update \
         tini \
         unzip \
         wget \
+        zip \
         zlib1g \
     && rm -rf /var/lib/apt/lists/*
 
